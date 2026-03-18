@@ -1,1 +1,25 @@
 
+name: Production Workflow
+
+on:
+ push:
+      branches:
+        - main
+ pull_request:
+  branches:
+        -main
+  types:
+    -opened
+    -reopened
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Deploy to Production
+        run: echo "Deploying to Production"
+        
+ 
