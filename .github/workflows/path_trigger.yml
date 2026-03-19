@@ -3,7 +3,7 @@ name: Event Trigger Check
 on:
   push:
     paths:
-       - 'index.html'
+       - 'index1.html'
     branches:
        - new
       
