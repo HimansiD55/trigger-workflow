@@ -1,0 +1,17 @@
+name: Event Trigger Check
+
+on:
+  push:
+    paths:
+       - 'index.html'
+    branches:
+       - new
+      
+    
+jobs:
+   check-event:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print Event Name
+        run: echo "This workflow was triggered by ${{ github.event_name }}"
