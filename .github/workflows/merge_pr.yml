@@ -1,0 +1,20 @@
+name: Event Trigger Check merge
+
+on:
+  push:
+    branches:
+      - main                  # fires on direct push to main
+  pull_request:
+    types:
+      - closed 
+    
+jobs:
+  deploy:
+    runs-on: ubuntu-latest 
+    # runs if it's a direct push OR a merged PR
+    if: |
+      github.event_name == 'push' ||
+      (github.event_name == 'pull_request' && github.event.pull_request.merged == true)
+    steps:
+      - name: Deploy
+        run: echo "Triggered by direct push or PR merge"
